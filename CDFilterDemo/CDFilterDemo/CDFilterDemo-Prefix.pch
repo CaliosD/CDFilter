@@ -1,0 +1,63 @@
+//
+//  CDFilterDemo-Prefix.pch
+//  CDFilterDemo
+//
+//  Created by Calios on 3/7/16.
+//  Copyright © 2016 Calios. All rights reserved.
+//
+
+#ifndef CDFilterDemo_Prefix_pch
+#define CDFilterDemo_Prefix_pch
+#import <Foundation/Foundation.h>
+#import "PureLayout.h"
+
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+
+/**
+ *  课程状态
+ */
+typedef NS_ENUM(NSInteger, CourseStatus){
+    /**
+     *  全部
+     */
+    CourseStatus_All = -1,
+    /**
+     *  待开课
+     */
+    CourseStatus_PrepareStart = 0,
+    /**
+     *  授课中
+     */
+    CourseStatus_InProcess = 1,
+    /**
+     *  已结束
+     */
+    CourseStatus_Finished = 2
+};
+
+/**
+ *  课程类型
+ */
+typedef NS_ENUM(NSInteger, CourseType){
+    /**
+     *  全部
+     */
+    CourseType_All = -1,
+    /**
+     *  必修
+     */
+    CourseType_Required = 1,
+    /**
+     *  选修
+     */
+    CourseType_Elective = 2
+};
+
+#define kCDFilterThemeColor  [UIColor colorWithRed:201/255.0 green:33/255.0 blue:29/255.0 alpha:1.0]
+
+#define NSNumberFromEnum(e)             [NSNumber numberWithInteger:e]
+#define EnumValueFromNSNumber(n)        [n integerValue]
+
+
+#endif /* CDFilterDemo_Prefix_pch */
