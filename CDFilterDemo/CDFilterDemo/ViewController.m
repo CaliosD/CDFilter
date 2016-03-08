@@ -27,14 +27,12 @@
     
     _filter = [[CDFilterManager alloc] init];
     _filter.dataSource = self;
-    //    _filter.hasTableView = NO;
-    _filter.hasTableView = YES;
+        _filter.hasTableView = NO;
+//    _filter.hasTableView = YES;
     
     [_filter showInView:self.view];
     
     self.navigationItem.titleView = _filter.titleview;
-    //    [self.navigationController.navigationBar layoutIfNeeded];
-    
     
     self.edgesForExtendedLayout = UIRectEdgeNone;
     

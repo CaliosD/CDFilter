@@ -78,9 +78,9 @@ typedef NYSegmentedControl *(^CreateSegmentedControl)(NSArray *);
         __weak CDFilterContainerView *weakSelf = self;
         _createSegment = ^(NSArray *arr){
             NYSegmentedControl *segmentedControl = [[NYSegmentedControl alloc] initWithItems:arr];
-            segmentedControl.titleTextColor = [kCDFilterThemeColor colorWithAlphaComponent:0.8];
+            segmentedControl.titleTextColor = kCDFilterThemeColor;
             segmentedControl.selectedTitleTextColor = [UIColor whiteColor];
-            segmentedControl.segmentIndicatorBackgroundColor = [kCDFilterThemeColor colorWithAlphaComponent:0.8];
+            segmentedControl.segmentIndicatorBackgroundColor = kCDFilterThemeColor;
             segmentedControl.backgroundColor = [UIColor clearColor];
             segmentedControl.borderWidth = 0;
             segmentedControl.borderColor = kCDFilterThemeColor;
@@ -90,7 +90,7 @@ typedef NYSegmentedControl *(^CreateSegmentedControl)(NSArray *);
             segmentedControl.segmentedControlSize = CGSizeMake(kCDFilterSegmentWidth, kCDFilterSegmentHeight);
             segmentedControl.titleFont = [UIFont systemFontOfSize:kCDFilterInfoLabelFontSize];
             [segmentedControl sizeToFit];
-            segmentedControl.cornerRadius = CGRectGetHeight(segmentedControl.frame) / 2.0f;
+            segmentedControl.cornerRadius = 7.f;
 #if __IPHONE_OS_VERSION_MAX_ALLOWED >= __IPHONE_7_0
             segmentedControl.usesSpringAnimations = YES;
 #endif
