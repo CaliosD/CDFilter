@@ -46,7 +46,8 @@
 
 - (void)postFilter
 {
-    NSLog(@"<><><><>< %@",_filter.selectedIndexes);
+    NSLog(@"<><><><>< post value:%@",_filter.selectedIndexes);
+    NSLog(@"--------- condition string:%@",_filter.conditionString);
 }
 
 - (void)didReceiveMemoryWarning {

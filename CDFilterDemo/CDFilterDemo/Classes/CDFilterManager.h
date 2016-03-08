@@ -41,6 +41,7 @@
 @property (nonatomic, assign) id<CDFilterDelegate> delegate;
 
 @property (nonatomic, assign, readonly) NSArray *selectedIndexes;
+@property (nonatomic, strong, readonly) NSString *conditionString;
 
 - (id)init;
 - (void)showInView:(UIView *)view;

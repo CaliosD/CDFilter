@@ -133,6 +133,24 @@
     return [_selectedMutableIndexes copy];
 }
 
+- (NSString *)conditionString
+{
+    NSMutableArray *resultArray = [NSMutableArray arrayWithArray:_containerView.resultArray];
+    NSString *filter = @"条件：";
+
+    if (self.hasTableView) {
+        [resultArray removeLastObject];
+    }
+    if (_typeTitles.count == resultArray.count) {
+
+        NSString *condition = [self pinString:_typeTitles indexes:resultArray];
+        
+        filter = [filter stringByAppendingString:condition];
+    }
+    
+    return  (![filter hasSuffix:@"："]) ? filter : @"";
+}
+
 #pragma mark - Lazy-lazy
 
 - (CDFilterTitleView *)titleview
@@ -179,19 +197,27 @@
                      completion:^(BOOL finished) {
                          self.isOpen = NO;
                      }];
-    
-//    NSLog(@"<><><>< %@",self.selectedIndexes);
 }
 
-//#pragma mark - CDFilterContainerViewDelegate
-//
-//- (void)containerViewWillDismissWithValue:(NSDictionary *)dict
-//{
-//    if([self.delegate respondsToSelector:@selector(filter:willDismissWithValue:)]){
-//        [self.delegate filter:self willDismissWithValue:dict];
-//    }
-//    
-//    [self hideFilter:_titleview];
-//}
+#pragma mark - Private
+
+- (NSString *)pinString:(NSArray *)source indexes:(NSArray *)indexes
+{
+    NSMutableArray *tmp = [NSMutableArray arrayWithArray:source];
+    NSMutableArray *indexTmp = [NSMutableArray arrayWithArray:indexes];
+    NSString *tmpString = @"";
+    for (int i = 0; i < tmp.count; i++) {
+        NSInteger index = [indexTmp[i] integerValue];
+        
+        if (index != 0) {
+            if (tmpString.length > 0) {
+                tmpString = [tmpString stringByAppendingString:@"+"];
+            }
+            tmpString = [tmpString stringByAppendingString:tmp[i][index]];
+        }
+    }
+    
+    return tmpString;
+}
 
 @end
