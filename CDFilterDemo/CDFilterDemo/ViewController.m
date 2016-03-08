@@ -49,44 +49,6 @@
     NSLog(@"<><><><>< %@",_filter.selectedIndexes);
 }
 
-/*
- - (NSArray *)typesArray
- {
- NSMutableArray *types = [NSMutableArray array];
- 
- NSArray *k1 = @[@"全部",@"待开课",@"授课中",@"已结束"];
- NSArray *v1 = @[
- NSNumberFromEnum(CourseStatus_All),
- NSNumberFromEnum(CourseStatus_PrepareStart),
- NSNumberFromEnum(CourseStatus_InProcess),
- NSNumberFromEnum(CourseStatus_Finished)
- ];
- NSMutableArray *t1 = [NSMutableArray array];
- NSAssert(k1.count == v1.count, @"There're missing key or value for segment1.");
- for (int i = 0; i < k1.count; i++) {
- CDFilterCategoryItem *item = [[CDFilterCategoryItem alloc] initWithWithCategoryName:k1[i] value:[v1[i] integerValue]];
- [t1 addObject:item];
- }
- 
- NSArray *k2 = @[@"全部",@"必修",@"选修"];
- NSArray *v2 = @[
- NSNumberFromEnum(CourseType_All),
- NSNumberFromEnum(CourseType_Required),
- NSNumberFromEnum(CourseType_Elective)
- ];
- NSMutableArray *t2 = [NSMutableArray array];
- NSAssert(k2.count == v2.count, @"There're missing key or value for segment2.");
- for (int i = 0; i < k2.count; i++) {
- CDFilterCategoryItem *item = [[CDFilterCategoryItem alloc] initWithWithCategoryName:k2[i] value:[v2[i] integerValue]];
- [t2 addObject:item];
- }
- 
- [types addObject:t1];
- [types addObject:t2];
- return types;
- }
- */
-
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

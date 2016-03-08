@@ -562,6 +562,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "CDFilterDemo/CDFilterDemo-Prefix.pch";
 				INFOPLIST_FILE = CDFilterDemo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Calios.CDFilterDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -575,6 +576,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "CDFilterDemo/CDFilterDemo-Prefix.pch";
 				INFOPLIST_FILE = CDFilterDemo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Calios.CDFilterDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -624,6 +626,7 @@
 				EE00D1A41C8D8A8700AEB414 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		EE00D1A51C8D8A8700AEB414 /* Build configuration list for PBXNativeTarget "CDFilterDemoUITests" */ = {
 			isa = XCConfigurationList;
@@ -632,6 +635,7 @@
 				EE00D1A71C8D8A8700AEB414 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

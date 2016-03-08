@@ -79,8 +79,10 @@
 {
     _filterWidth = view.frame.size.width;
     
-    NSAssert([self.dataSource respondsToSelector:@selector(categoryTitlesForTypesInFilter:)], @"You missed delegate `-categoryTitlesForTypesInFilter:`");
+    NSAssert([self.dataSource respondsToSelector:@selector(categoryTitlesForTypesInFilter:)], @"You missed data source `-categoryTitlesForTypesInFilter:`");
     _typeTitles = [self.dataSource categoryTitlesForTypesInFilter:self];
+    NSAssert([self.dataSource respondsToSelector:@selector(categoryValuesForTypesInFilter:)], @"You missed data source `-categoryValuesForTypesInFilter:`");
+    _typeValues = [self.dataSource categoryValuesForTypesInFilter:self];
     
     if (_hasTableView) {
         _filterHeight = view.frame.size.height;
@@ -104,7 +106,30 @@
 
 - (NSArray *)selectedIndexes
 {
-    _selectedMutableIndexes = [NSMutableArray arrayWithArray:_containerView.resultArray];
+    if (self.hasTableView) {
+        NSMutableArray *resultArray = [NSMutableArray arrayWithArray:_containerView.resultArray];
+        NSNumber *last = [resultArray lastObject];
+        [resultArray removeLastObject];
+        if (_typeValues.count == resultArray.count) {
+            [_selectedMutableIndexes removeAllObjects];
+            for (int i = 0; i < _typeValues.count; i++) {
+                NSInteger index = [resultArray[i] integerValue];
+                [_selectedMutableIndexes addObject: _typeValues[i][index]];
+            }
+            [_selectedMutableIndexes addObject:last];
+            
+        }
+    }
+    else{
+        if (_typeValues.count == _containerView.resultArray.count) {
+            [_selectedMutableIndexes removeAllObjects];
+            for (int i = 0; i < _typeValues.count; i++) {
+                NSInteger index = [_containerView.resultArray[i] integerValue];
+                [_selectedMutableIndexes addObject: _typeValues[i][index]];
+            }
+        }
+    }
+
     return [_selectedMutableIndexes copy];
 }
 
