@@ -48,7 +48,7 @@ typedef NYSegmentedControl *(^CreateSegmentedControl)(NSArray *);
         
         _infoLabel = [[UILabel alloc] initWithFrame:CGRectZero];
         _infoLabel.backgroundColor = [UIColor whiteColor];
-        _infoLabel.textColor = kCDFilterThemeColor;
+        _infoLabel.textColor = [CDFilterConfig filterThemeColor];
         _infoLabel.font = [UIFont systemFontOfSize:kCDFilterInfoLabelFontSize];
         _infoLabel.textAlignment = NSTextAlignmentCenter;
         [self addSubview:_infoLabel];
@@ -67,7 +67,7 @@ typedef NYSegmentedControl *(^CreateSegmentedControl)(NSArray *);
         _filterTV.hidden = YES;
         
         _confirmBtn = [[UIButton alloc] initWithFrame:CGRectZero];
-        [_confirmBtn setBackgroundColor:kCDFilterThemeColor];
+        [_confirmBtn setBackgroundColor:[CDFilterConfig filterThemeColor]];
         [_confirmBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
         _confirmBtn.layer.cornerRadius = 7.f;
         [_confirmBtn setTitle:@"确定" forState:UIControlStateNormal];
@@ -78,12 +78,12 @@ typedef NYSegmentedControl *(^CreateSegmentedControl)(NSArray *);
         __weak CDFilterContainerView *weakSelf = self;
         _createSegment = ^(NSArray *arr){
             NYSegmentedControl *segmentedControl = [[NYSegmentedControl alloc] initWithItems:arr];
-            segmentedControl.titleTextColor = kCDFilterThemeColor;
+            segmentedControl.titleTextColor = [CDFilterConfig filterThemeColor];
             segmentedControl.selectedTitleTextColor = [UIColor whiteColor];
-            segmentedControl.segmentIndicatorBackgroundColor = kCDFilterThemeColor;
+            segmentedControl.segmentIndicatorBackgroundColor = [CDFilterConfig filterThemeColor];
             segmentedControl.backgroundColor = [UIColor clearColor];
             segmentedControl.borderWidth = 0;
-            segmentedControl.borderColor = kCDFilterThemeColor;
+            segmentedControl.borderColor = [CDFilterConfig filterThemeColor];
             segmentedControl.segmentIndicatorBorderWidth = 0.0f;
             segmentedControl.segmentIndicatorInset = 2.0f;
             segmentedControl.segmentIndicatorBorderColor = weakSelf.backgroundColor;

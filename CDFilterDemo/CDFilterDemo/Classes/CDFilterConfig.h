@@ -27,6 +27,7 @@ extern NSString *const CDFilterWillDismissNotification;
 
 @interface CDFilterConfig : NSObject
 
++ (UIColor *)filterThemeColor;
 + (UIColor *)seperatorColor;
 
 @end

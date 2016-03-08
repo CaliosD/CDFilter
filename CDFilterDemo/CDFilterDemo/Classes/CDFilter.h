@@ -10,3 +10,4 @@
 #import "CDFilterManager.h"
 #import "CDFilterTitleView.h"
 #import "CDFilterCategoryItem.h"
+#import "CDFilterConfig.h"

@@ -12,6 +12,11 @@ NSString *const CDFilterWillDismissNotification = @"CDFilterWillDismissNotificat
 
 @implementation CDFilterConfig
 
++ (UIColor *)filterThemeColor
+{
+    return [UIColor colorWithRed:201/255.0 green:33/255.0 blue:29/255.0 alpha:1.0];
+}
+
 + (UIColor *)seperatorColor
 {
     return [UIColor colorWithWhite:0.810 alpha:1.000];

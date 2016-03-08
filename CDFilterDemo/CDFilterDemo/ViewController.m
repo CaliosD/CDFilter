@@ -23,7 +23,7 @@
     
     self.title = @"Test";
     self.view.backgroundColor = [UIColor whiteColor];
-    self.navigationController.navigationBar.barTintColor = kCDFilterThemeColor;
+    self.navigationController.navigationBar.barTintColor = [CDFilterConfig filterThemeColor];
     
     _filter = [[CDFilterManager alloc] init];
     _filter.dataSource = self;

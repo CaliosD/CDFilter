@@ -54,8 +54,6 @@ typedef NS_ENUM(NSInteger, CourseType){
     CourseType_Elective = 2
 };
 
-#define kCDFilterThemeColor  [UIColor colorWithRed:201/255.0 green:33/255.0 blue:29/255.0 alpha:1.0]
-
 #define NSNumberFromEnum(e)             [NSNumber numberWithInteger:e]
 #define EnumValueFromNSNumber(n)        [n integerValue]
 
