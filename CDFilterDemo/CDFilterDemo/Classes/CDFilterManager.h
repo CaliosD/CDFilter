@@ -26,7 +26,7 @@
 @protocol CDFilterDelegate <NSObject>
 
 @optional
-- (void)filter:(CDFilterManager *)filter willDismissWithValue:(NSDictionary *)dict;
+- (void)filterDidDismiss:(CDFilterManager *)filter;
 
 @end
 

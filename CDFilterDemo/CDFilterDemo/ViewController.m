@@ -27,15 +27,12 @@
     
     _filter = [[CDFilterManager alloc] init];
     _filter.dataSource = self;
-        _filter.hasTableView = NO;
+    _filter.hasTableView = NO;
 //    _filter.hasTableView = YES;
     
     [_filter showInView:self.view];
     
     self.navigationItem.titleView = _filter.titleview;
-    
-    self.edgesForExtendedLayout = UIRectEdgeNone;
-    
     
     UIBarButtonItem *post = [[UIBarButtonItem alloc] initWithTitle:@"post" style:UIBarButtonItemStyleDone target:self action:@selector(postFilter)];
     post.tintColor = [UIColor whiteColor];

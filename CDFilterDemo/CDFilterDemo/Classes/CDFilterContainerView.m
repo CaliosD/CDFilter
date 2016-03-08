@@ -26,7 +26,7 @@ typedef NYSegmentedControl *(^CreateSegmentedControl)(NSArray *);
 @property (nonatomic, strong) NSArray                *typeValues;// value array of category type value arrays
 @property (nonatomic, strong) NSString               *instruction;// Instruction for filter label
 @property (nonatomic, strong) NSArray                *filterTVArray;// filter tableview data source
-@property (nonatomic, strong) NSMutableArray         *views;
+@property (nonatomic, strong) NSMutableArray         *segments;
 @property (nonatomic, strong) NSMutableArray         *resultMutableArray;
 
 @property (nonatomic, assign) NSInteger              selectedTVIndex;
@@ -39,10 +39,11 @@ typedef NYSegmentedControl *(^CreateSegmentedControl)(NSArray *);
 {
     self = [super initWithFrame:frame];
     if (self) {
+        self.backgroundColor = [UIColor whiteColor];
         _typeTitles          = [NSArray array];
         _typeValues          = [NSArray array];
         _filterTVArray       = [NSArray array];
-        _views               = [NSMutableArray array];
+        _segments            = [NSMutableArray array];
         _selectedTVIndex     = 0;
         _resultMutableArray  = [NSMutableArray array];
         
@@ -117,13 +118,13 @@ typedef NYSegmentedControl *(^CreateSegmentedControl)(NSArray *);
     _typeValues = values;
     _filterTVArray = filterArray;
     
-    [_views removeAllObjects];  // ?? How to handle the subviews added to weakSelf?
+    [_segments removeAllObjects];  // ?? How to handle the subviews added to weakSelf?
     
     for (int i = 0 ; i < _typeTitles.count; i++) {
         NYSegmentedControl *control = _createSegment(_typeTitles[i]);
         control.tag = kCDFilterSegmentTagSalt + i;
         control.frame = CGRectMake(kCDFilterSegmentPadding, kCDFilterSegmentPadding * (i + 1) + kCDFilterSegmentHeight * i, kCDFilterSegmentWidth * [_typeTitles[i] count], kCDFilterSegmentHeight);
-        [_views addObject:control];
+        [_segments addObject:control];
     }
     
     CGFloat y = kCDFilterSegmentPadding * (_typeTitles.count + 1) + kCDFilterSegmentHeight * _typeTitles.count;
@@ -149,16 +150,16 @@ typedef NYSegmentedControl *(^CreateSegmentedControl)(NSArray *);
     }
     else{
         _confirmBtn.hidden = NO;
-        _confirmBtn.frame = CGRectMake((self.frame.size.width - 180)/2.f, CGRectGetMaxY([[_views lastObject] frame]) + kCDFilterSegmentPadding * 1.5, 180, kCDFilterSegmentHeight);
+        _confirmBtn.frame = CGRectMake((self.frame.size.width - 180)/2.f, CGRectGetMaxY([[_segments lastObject] frame]) + kCDFilterSegmentPadding * 1.5, 180, kCDFilterSegmentHeight);
     }
 }
 
 - (NSArray *)resultArray
 {
-    if (_views.count > 0) {
+    if (_segments.count > 0) {
         [_resultMutableArray removeAllObjects];
-        for (int i = 0; i < _views.count; i++) {
-            [_resultMutableArray addObject:[NSNumber numberWithInteger:[_views[i] selectedSegmentIndex]]];
+        for (int i = 0; i < _segments.count; i++) {
+            [_resultMutableArray addObject:[NSNumber numberWithInteger:[_segments[i] selectedSegmentIndex]]];
         }
     }
     if (_filterTVArray.count > 0) {

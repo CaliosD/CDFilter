@@ -8,15 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-//@protocol CDFilterContainerViewDelegate <NSObject>
-//
-//- (void)containerViewWillDismissWithValue:(NSDictionary *)dict;
-//
-//@end
 @interface CDFilterContainerView : UIView
 
 @property (nonatomic, strong, readonly) NSArray *resultArray;
-//@property (nonatomic, assign) id<CDFilterContainerViewDelegate> delegate;
 
 - (void)configureContainerViewWithTypeTitles:(NSArray *)titles
                                   typeValues:(NSArray *)values
